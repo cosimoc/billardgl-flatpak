@@ -12,6 +12,7 @@
     ],
     "rename-icon": "billardgl",
     "cleanup": [
+        "/include",
         "/lib/pkgconfig",
         "*.la", "*.a"
     ],
@@ -69,7 +70,7 @@
                 {
                     "type": "file",
                     "path": "de.billardgl.BillardGL.desktop"
-                },                
+                },
                 {
                     "type": "file",
                     "path": "billardgl-32.xpm"
