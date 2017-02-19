@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=BillardGL
+GenericName=billard-gl
+Comment=Play Billard Game
+Icon=billard-gl
+Exec=billardgl-runner
+Terminal=false
+Categories=Game;Simulation;
+Keywords=billard;3D;opengl;game;

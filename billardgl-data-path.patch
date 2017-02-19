@@ -1,0 +1,25 @@
+From 9555868cb43ef2b7c9cb7f7f13bd9ba057b4fcb3 Mon Sep 17 00:00:00 2001
+From: Cosimo Cecchi <cosimoc@gnome.org>
+Date: Fri, 17 Feb 2017 19:48:12 -0800
+Subject: [PATCH] Fix data path
+
+---
+ src/Namen.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/Namen.h b/src/Namen.h
+index fa3874b..318a608 100644
+--- a/src/Namen.h
++++ b/src/Namen.h
+@@ -23,7 +23,7 @@
+ #define TUTORIAL 105
+ 
+ #ifndef _WIN32
+-#define PFAD "/usr/share/BillardGL/"
++#define PFAD "/app/share/BillardGL/"
+ #endif
+ 
+ #ifndef PFAD
+-- 
+2.9.3
+

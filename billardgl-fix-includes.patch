@@ -1,0 +1,43 @@
+From 5411dd5512294a2ec9f1b55b74c1a668b37f8f35 Mon Sep 17 00:00:00 2001
+From: Cosimo Cecchi <cosimoc@gnome.org>
+Date: Fri, 17 Feb 2017 19:31:54 -0800
+Subject: [PATCH] Fix includes
+
+---
+ src/bmp.cpp | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/src/bmp.cpp b/src/bmp.cpp
+index 2dafaac..a32d6c5 100644
+--- a/src/bmp.cpp
++++ b/src/bmp.cpp
+@@ -4,8 +4,8 @@
+ // Modified by Volker Blanz, 25.4.2001
+ //
+ 
+-#include <iostream.h>
+-#include <fstream.h>
++#include <iostream>
++#include <fstream>
+ #include <stdio.h>
+ #include <string.h>
+ #include "LA.h"
+@@ -242,13 +242,13 @@ bool loadBMP(FMatrix& r, FMatrix& g, FMatrix& b, const char* fname) {
+   f = fopen(ffname, "rb");
+   
+   if(!f) {
+-    cerr << "unable to open " << ffname << "!" << endl;
++    std::cerr << "unable to open " << ffname << "!" << std::endl;
+     return false;
+   }
+ 
+    
+   if(!checkMagicKey(f)) { 
+-    cerr << ffname << " is not a bitmap-file." << endl; 
++    std::cerr << ffname << " is not a bitmap-file." << std::endl; 
+     return false; 
+   }   
+   
+-- 
+2.9.3
+

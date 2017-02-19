@@ -1,0 +1,93 @@
+{
+    "app-id": "de.billardgl.BillardGL",
+    "runtime": "org.freedesktop.Platform",
+    "runtime-version": "1.4",
+    "sdk": "org.freedesktop.Sdk",
+    "command": "billardgl-runner",
+    "finish-args": [
+        "--device=dri",
+        "--share=ipc",
+        "--socket=x11",
+        "--socket=pulseaudio"
+    ],
+    "rename-icon": "billardgl",
+    "cleanup": [
+        "/lib/pkgconfig",
+        "*.la", "*.a"
+    ],
+    "modules": [
+        {
+            "name": "glu",
+            "config-opts": ["--disable-static"],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://mesa.freedesktop.org/archive/glu/glu-9.0.0.tar.bz2",
+                    "sha256": "1f7ad0d379a722fcbd303aa5650c6d7d5544fde83196b42a73d1193568a4df12"
+                }
+            ]
+        },
+        {
+            "name": "freeglut",
+            "buildsystem": "cmake",
+            "config-opts": [
+                "-DCMAKE_INSTALL_LIBDIR:PATH=/app/lib"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://downloads.sourceforge.net/project/freeglut/freeglut/3.0.0/freeglut-3.0.0.tar.gz",
+                    "sha256": "2a43be8515b01ea82bcfa17d29ae0d40bd128342f0930cd1f375f1ff999f76a2"
+                }
+            ]
+        },
+        {
+            "name": "billardgl",
+            "no-autogen": true,
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://downloads.sourceforge.net/project/billardgl/billardgl/BillardGL%201.75/BillardGL-1.75.tar.gz",
+                    "sha256": "9b865b1254aa30125480ec7ea2ce00d91524db066a524b78492545782856df96"
+                },
+                {
+                    "type": "patch",
+                    "path": "billardgl-fix-includes.patch"
+                },
+                {
+                    "type": "patch",
+                    "path": "billardgl-fix-Makefile.patch"
+                },
+                {
+                    "type": "patch",
+                    "path": "billardgl-data-path.patch"
+                },
+                {
+                    "type": "patch",
+                    "path": "billardgl-default-no-fullscreen.patch"
+                },
+                {
+                    "type": "file",
+                    "path": "de.billardgl.BillardGL.desktop"
+                },                
+                {
+                    "type": "file",
+                    "path": "billardgl-32.xpm"
+                },
+                {
+                    "type": "file",
+                    "path": "billardgl-48.xpm"
+                },
+                {
+                    "type": "file",
+                    "path": "billardgl-runner"
+                },
+                {
+                    "type": "file",
+                    "path": "billardgl-Makefile",
+                    "dest-filename": "Makefile"
+                }
+            ]
+        }
+    ]
+}

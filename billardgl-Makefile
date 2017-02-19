@@ -1,0 +1,23 @@
+SUBDIRS = src
+
+.PHONY: subdirs $(SUBDIRS)
+
+subdirs: $(SUBDIRS)
+
+$(SUBDIRS):
+	$(MAKE) -C $@
+
+install:
+	mkdir -p /app/bin
+	cp src/BillardGL /app/bin
+	cp billardgl-runner /app/bin
+	chmod +x /app/bin/billardgl-runner
+	mkdir -p /app/share/BillardGL
+	cp -a src/Texturen /app/share/BillardGL
+	cp -a src/lang /app/share/BillardGL
+	mkdir -p /app/share/applications
+	cp de.billardgl.BillardGL.desktop /app/share/applications
+	mkdir -p /app/share/icons/hicolor/32x32/apps
+	cp billardgl-32.xpm /app/share/icons/hicolor/32x32/apps/billardgl.xpm
+	mkdir -p /app/share/icons/hicolor/48x48/apps
+	cp billardgl-48.xpm /app/share/icons/hicolor/48x48/apps/billardgl.xpm

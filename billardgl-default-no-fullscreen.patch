@@ -1,0 +1,26 @@
+From 088138830c360b22b448a18d08814066e53ad689 Mon Sep 17 00:00:00 2001
+From: Cosimo Cecchi <cosimoc@gnome.org>
+Date: Sat, 18 Feb 2017 11:05:26 -0800
+Subject: [PATCH] Don't start fullscreen by default
+
+It does not work on Wayland.
+---
+ src/KommandoZeilenParameter.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/KommandoZeilenParameter.cpp b/src/KommandoZeilenParameter.cpp
+index 5ff8285..5dc39a9 100644
+--- a/src/KommandoZeilenParameter.cpp
++++ b/src/KommandoZeilenParameter.cpp
+@@ -154,7 +154,7 @@ void KommandoZeilenParameter(int argc,char **argv) {
+   TischLampen          = 2;
+   GrueneLampe          = 0;
+ 
+-  FullScreen           = 1;
++  FullScreen           = 0;
+ 
+   EffektLautstaerke    = .5;
+   MusikLautstaerke     = .5;
+-- 
+2.9.3
+

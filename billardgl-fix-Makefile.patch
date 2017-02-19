@@ -1,0 +1,31 @@
+From 3a06f9b9ee3f35485d6219122081b71d48777f7a Mon Sep 17 00:00:00 2001
+From: Cosimo Cecchi <cosimoc@gnome.org>
+Date: Fri, 17 Feb 2017 19:36:21 -0800
+Subject: [PATCH] Fix Makefile
+
+---
+ src/Makefile | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/src/Makefile b/src/Makefile
+index 2418824..1178791 100644
+--- a/src/Makefile
++++ b/src/Makefile
+@@ -8,11 +8,11 @@
+ CC	=	gcc
+ CXX	=	g++
+ CFLAGS	=	-pipe -Wall -W -DNO_DEBUG -g
+-CXXFLAGS=	-pipe -Wall -W -DNO_DEBUG -g 
++CXXFLAGS=	-pipe -Wall -W -DNO_DEBUG -g
+ INCPATH	=	-I/usr/X11R6/include 
+ LINK	=	g++
+-LFLAGS	=	
+-LIBS	=	-L/usr/X11R6/lib -lGL -lGLU -lglut -lXmu -lXext -lX11 -lm -lXi
++LFLAGS	=	$(LDFLAGS)
++LIBS	=	-lGL -lGLU -lglut
+ 
+ ## -lqgl -lGLU
+ 
+-- 
+2.9.3
+
